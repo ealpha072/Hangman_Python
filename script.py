@@ -1,7 +1,12 @@
+import random
+
 playerName = input("Enter your name: ")
 print("Hello "+playerName,"welcome to hangman and good luch")
 
-word = "boy"
+gameWords = ['computer','interesting','guess','introduction','popular','lion','history',
+                'ponder','debate','issues']
+
+word = random.choice(gameWords)
 
 #holds player guess as a string, this is compared to the word
 playerGuesses=''
