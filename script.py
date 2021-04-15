@@ -1,10 +1,9 @@
+import sys
 import random
-
-
       
 def playGame():
     playerName = input("Enter your name: ")
-    print("Hello "+playerName,"welcome to hangman and good luch")
+    print("Hello "+playerName,"welcome to hangman and good luck")
 
     gameWords = ['computer','interesting','guess','introduction','popular','lion','history',
                 'ponder','debate','issues']
@@ -27,12 +26,21 @@ def playGame():
         if failed == 0:
             print ("You win")
             print("The word is: ",word)
-            break
-        
+            choice = input("Play again ? y/n: ")
+
+            #code for checking game continuity
+
+            if 'y' in choice:
+                playGame()
+            elif 'n' in choice:
+                sys.exit()
+            else:
+                print("Something went wrong type y or n")
+
         playerGuess = input("guess a character: ")
         playerGuesses+=playerGuess
 
-        if playerGuess== 'exit':
+        if playerGuess == 'exit':
             break
 
         if playerGuess not in word:
