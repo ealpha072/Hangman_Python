@@ -1,7 +1,7 @@
 ## complex version of the hangman game
 import sys
 import random
-import string
+from string import ascii_lowercase
 
 gameWords = ['bulti',
  'Rauschenberg',
@@ -54,6 +54,21 @@ gameWords = ['bulti',
  'sodicity',
  'horologue']
 
+def getWord(arr):
+    reqLen = input("Choose word length: ")
+    reqLen = int(reqLen)
+    myArr = []
+    #myWord=''
+    for word in arr:
+        if(len(word) > reqLen):
+            myArr.append(word)
+            print(random.choice(myArr))
+
+getWord(gameWords)
+
+
+
+
 #function for asking user number of attempts
 
 def userNumberOfAttempts():
@@ -78,7 +93,25 @@ def getNextLetter(remaining_letters):
     #Next letter is not more than a single character
     #Next letter is a letter (no other character)
     #Next letter is not already guessed before
-    return True
+    #remaining_letters = set(ascii_lowercase)
+    if(len(remaining_letters)==0):
+        raise ValueError("There are no remaining letters")  
+
+    nextLetter = input("Guess a character: ".lower())
+    if(len(nextLetter)!= 1):
+        print("{0}, is not a single character".format(nextLetter))
+        getNextLetter(remaining_letters)
+    elif(nextLetter not in ascii_lowercase):
+        print("{0}, is not a letter".format(nextLetter))
+        getNextLetter(remaining_letters)
+    elif(nextLetter not in remaining_letters):
+        print("{0}, has been guessed before")
+        getNextLetter(remaining_letters)
+    else:
+        remaining_letters.remove(nextLetter)
+        return nextLetter
+
+
     
 
 def playGame():
@@ -93,12 +126,29 @@ def playGame():
     #Randomly selecting a word
     word = random.choice(gameWords)
 
+    #game variables 
+    remaining_letters = set(ascii_lowercase)
+
     wrongLetters = []
+    wordSolved = False
     #main game loop
     while attempts > 0:
         #print game state
         print("Attempts remaining: {0}".format(attempts))
         print("Previous guesses: {0}".format(' '.join(wrongLetters)))
+
+        #getting next letter guess
+        nextLetter = getNextLetter(remaining_letters)
+
+        #check if letter guessed is in the word
+        if nextLetter in word:
+            #correctly guessed
+            print("Letter {0} is in the word".format(nextLetter))
+        
+        else:
+            print("Letter {0} is not in the word".format(nextLetter))
+            attempts -=1
+            wrongLetters.append(nextLetter)
 
 
 
