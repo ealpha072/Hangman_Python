@@ -3,6 +3,7 @@ import sys
 import random
 from string import ascii_lowercase
 
+#list of random words
 gameWords = ['bulti',
  'Rauschenberg',
  'quizzing',
@@ -54,6 +55,7 @@ gameWords = ['bulti',
  'sodicity',
  'horologue']
 
+#generating a random word for the game
 def getWord(arr,num):
     for word in arr:
         if len(word) > int(num):
@@ -63,6 +65,7 @@ def getWord(arr,num):
     #print(myWord)
     return myWord
 
+#getting user number of attempts
 def userNumberOfAttempts():
     numAttempts = input("How many wrong attempts do you want to allow? [1-25]: ")
     numAttempts  = int(numAttempts)
@@ -71,6 +74,7 @@ def userNumberOfAttempts():
     else:
         return numAttempts
 
+#getting user minimum wordLength
 def minWordLength():
     wordLength = input("What min word length do you want ? [4-16]: ")
     wordLength = int(wordLength)
@@ -80,6 +84,7 @@ def minWordLength():
     else:
         return wordLength
 
+#getting user next letter
 def getNextLetter(remaining_letters):
     #check below;
     #Next letter is not more than a single character
@@ -103,6 +108,7 @@ def getNextLetter(remaining_letters):
         remaining_letters.remove(nextLetter)
         return nextLetter
 
+#playing actuall game
 def playGame():
     name = input("What is your name ?:")
     print("Hello " + name, "welcome to the game!!")
