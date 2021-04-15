@@ -72,4 +72,9 @@ def minWordLength():
     else:
         return wordLength
 
-minWordLength()
+
+def playGame():
+    userNumberOfAttempts()
+    minWordLength()
+
+playGame()
