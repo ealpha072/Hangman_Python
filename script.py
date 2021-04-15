@@ -50,6 +50,15 @@ def playGame():
 
             if attempts == 0:
                 print("You loose")
+                choice = input("Play again ? y/n: ")
+
+                #code for checking game continuity
+                if 'y' in choice:
+                    playGame()
+                elif 'n' in choice:
+                    sys.exit()
+                else:
+                    print("Something went wrong type y or n")
 
 playGame()
 
