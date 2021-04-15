@@ -2,8 +2,10 @@ playerName = input("Enter your name: ")
 print("Hello "+playerName,"welcome to hangman and good luch")
 
 word = "boy"
-#playerGuess = input("Guess any alphabet: ")
+
+#holds player guess as a string, this is compared to the word
 playerGuesses=''
+
 attempts = 10
 
 while attempts > 0:
@@ -23,8 +25,9 @@ while attempts > 0:
     playerGuess = input("guess a character: ")
     playerGuesses+=playerGuess
 
-    if playerGuess== 'q':
+    if playerGuess== 'exit':
         break
+
     if playerGuess not in word:
         attempts-=1
         print("Wrong guess")
