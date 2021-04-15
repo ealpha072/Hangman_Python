@@ -54,20 +54,14 @@ gameWords = ['bulti',
  'sodicity',
  'horologue']
 
-def getWord(arr):
-    reqLen = input("Choose word length: ")
-    reqLen = int(reqLen)
-    myArr = []
-    #myWord=''
+def getWord(arr,num):
     for word in arr:
-        if(len(word) > reqLen):
+        if len(word) > int(num):
+            myArr = []            
             myArr.append(word)
-            print(random.choice(myArr))
-
-getWord(gameWords)
-
-
-
+    myWord = random.choice(myArr)
+    #print(myWord)
+    return myWord
 
 #function for asking user number of attempts
 
@@ -112,8 +106,6 @@ def getNextLetter(remaining_letters):
         return nextLetter
 
 
-    
-
 def playGame():
     name = input("What is your name ?:")
     print("Hello " + name, "welcome to the game!!")
@@ -124,7 +116,7 @@ def playGame():
     wordLength = minWordLength()
 
     #Randomly selecting a word
-    word = random.choice(gameWords)
+    word = getWord(gameWords,wordLength)
 
     #game variables 
     remaining_letters = set(ascii_lowercase)
