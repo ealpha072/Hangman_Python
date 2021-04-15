@@ -72,9 +72,26 @@ def minWordLength():
     else:
         return wordLength
 
+def getNextLetter():
 
 def playGame():
-    userNumberOfAttempts()
-    minWordLength()
+    name = input("What is your name ?:")
+    print("Hello " + name, "welcome to the game!!")
+    print("Starting the game....")
 
-playGame()
+    #player settings 
+    attempts = userNumberOfAttempts()
+    wordLength = minWordLength()
+
+    #Randomly selecting a word
+    word = random.choice(gameWords)
+
+    wrongLetters = []
+    #main game loop
+    while attempts > 0:
+        #print game state
+        print("Attempts remaining: {0}".format(attempts))
+        print("Previous guesses: {0}".format(' '.join(wrongLetters)))
+
+
+
