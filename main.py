@@ -1,6 +1,7 @@
 ## complex version of the hangman game
 import sys
 import random
+import string
 
 gameWords = ['bulti',
  'Rauschenberg',
@@ -72,7 +73,13 @@ def minWordLength():
     else:
         return wordLength
 
-def getNextLetter():
+def getNextLetter(remaining_letters):
+    #check below;
+    #Next letter is not more than a single character
+    #Next letter is a letter (no other character)
+    #Next letter is not already guessed before
+    return True
+    
 
 def playGame():
     name = input("What is your name ?:")
