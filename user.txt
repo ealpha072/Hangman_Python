@@ -1,6 +1,6 @@
 ganmeLogic
 1. Prompt user for name
-2. Good luck to user
+2. Good luck to user, set attempts 
 3. From a list of words, chooses a random word,
 4. Ask user to guess any alphabet
 5. If the random word, contains that alphabet, show the random word with the correct placing 
