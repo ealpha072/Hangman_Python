@@ -63,8 +63,6 @@ def getWord(arr,num):
     #print(myWord)
     return myWord
 
-#function for asking user number of attempts
-
 def userNumberOfAttempts():
     numAttempts = input("How many wrong attempts do you want to allow? [1-25]: ")
     numAttempts  = int(numAttempts)
@@ -104,7 +102,6 @@ def getNextLetter(remaining_letters):
     else:
         remaining_letters.remove(nextLetter)
         return nextLetter
-
 
 def playGame():
     name = input("What is your name ?:")
