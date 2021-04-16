@@ -92,7 +92,6 @@ def minWordLength():
         displayedWord = ''.join([letter if index[i] else '*' for i, letter in enumerate(word)])
         return displayedWord.strip()'''
 
-
 #getting user next letter
 def getNextLetter(remaining_letters):
     #check below;
@@ -111,7 +110,7 @@ def getNextLetter(remaining_letters):
         print("{0}, is not a letter".format(nextLetter))
         getNextLetter(remaining_letters)
     elif(nextLetter not in remaining_letters):
-        print("{0}, has been guessed before".format(nextLetter))
+        print("Letter {0}, has been guessed before".format(nextLetter))
         getNextLetter(remaining_letters)
     else:
         remaining_letters.remove(nextLetter)
@@ -119,7 +118,7 @@ def getNextLetter(remaining_letters):
 
 #playing actuall game
 def playGame():
-    name = input("What is your name ?:")
+    name = input("What is your name ?: ")
     print("Hello " + name, "welcome to the game!!")
     print("Starting the game....")
 
@@ -133,9 +132,9 @@ def playGame():
     #game variables 
     remaining_letters = set(ascii_lowercase)
     index = [letter not in ascii_lowercase for letter in word]
-
     wrongLetters = []
     wordSolved = False
+
     #main game loop
     while attempts > 0:
         #print game state       
@@ -167,17 +166,19 @@ def playGame():
         print()
 
         #game is over, reveal the word
-        print("The word is {0}".format(word))
+    print("The word is {0}".format(word))
 
         #win or loose to player
-        if wordSolved:
-            print("Congratulation,"+name+" You have guessed the word correctly")
-        else:
-            print("Oops!! You ran out of attempts")
+    if wordSolved:
+        print("Congratulation,"+name+" You have guessed the word correctly")
+    else:
+        print("Oops!! You ran out of attempts")
 
         #ask for another round
-        tryAgain = input("Would you like to try again ? y/n: ")
-        return tryAgain.lower() == 'y'
+    tryAgain = input("Would you like to try again ? y/n: ")
+    return tryAgain.lower() == 'y'
 
-playGame()
+if __name__ == '__main__':
+    while playGame():
+        print()
 
