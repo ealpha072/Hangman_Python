@@ -86,8 +86,12 @@ def minWordLength():
 
 
 #get display word
-def displayWord():
-    
+'''def displayWord(word, index):
+    if len(word) != len(index):
+        raise ValueError("Word length doesnt match index length")
+        displayedWord = ''.join([letter if index[i] else '*' for i, letter in enumerate(word)])
+        return displayedWord.strip()'''
+
 
 #getting user next letter
 def getNextLetter(remaining_letters):
@@ -134,8 +138,7 @@ def playGame():
     wordSolved = False
     #main game loop
     while attempts > 0:
-        #print game state
-        
+        #print game state       
         print("Attempts remaining: {0}".format(attempts))
         print("Previous guesses: {0}".format(' '.join(wrongLetters)))
 
