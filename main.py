@@ -84,6 +84,11 @@ def minWordLength():
     else:
         return wordLength
 
+
+#get display word
+def displayWord():
+    
+
 #getting user next letter
 def getNextLetter(remaining_letters):
     #check below;
@@ -130,6 +135,7 @@ def playGame():
     #main game loop
     while attempts > 0:
         #print game state
+        
         print("Attempts remaining: {0}".format(attempts))
         print("Previous guesses: {0}".format(' '.join(wrongLetters)))
 
