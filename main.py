@@ -62,7 +62,7 @@ def getWord(arr,num):
             myArr = []            
             myArr.append(word)
     myWord = random.choice(myArr)
-    #print(myWord)
+    print(myWord)
     return myWord
 
 #getting user number of attempts
@@ -102,7 +102,7 @@ def getNextLetter(remaining_letters):
         print("{0}, is not a letter".format(nextLetter))
         getNextLetter(remaining_letters)
     elif(nextLetter not in remaining_letters):
-        print("{0}, has been guessed before")
+        print("{0}, has been guessed before".format(nextLetter))
         getNextLetter(remaining_letters)
     else:
         remaining_letters.remove(nextLetter)
@@ -123,6 +123,7 @@ def playGame():
 
     #game variables 
     remaining_letters = set(ascii_lowercase)
+    index = [letter not in ascii_lowercase for letter in word]
 
     wrongLetters = []
     wordSolved = False
@@ -139,11 +140,35 @@ def playGame():
         if nextLetter in word:
             #correctly guessed
             print("Letter {0} is in the word".format(nextLetter))
+
+            #reveal the matching letters
+            for i in range(len(word)):
+                if word[i] == nextLetter:
+                    index[i] = True
         
         else:
             print("Letter {0} is not in the word".format(nextLetter))
             attempts -=1
             wrongLetters.append(nextLetter)
 
+        #check if the whole world is solve
 
+        if False not in index:
+            wordSolved = True
+        print()
+
+        #game is over, reveal the word
+        print("The word is {0}".format(word))
+
+        #win or loose to player
+        if wordSolved:
+            print("Congratulation,"+name+" You have guessed the word correctly")
+        else:
+            print("Oops!! You ran out of attempts")
+
+        #ask for another round
+        tryAgain = input("Would you like to try again ? y/n: ")
+        return tryAgain.lower() == 'y'
+
+playGame()
 
