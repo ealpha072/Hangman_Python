@@ -1,5 +1,5 @@
 # hangman_python
-A hangman game in python
+A hangman game in python . Both beginner and intermediate level
 
 ## Things learnt 
 * Python functions
